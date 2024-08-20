@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const rooms_controller_1 = require("../controllers/rooms.controller");
+const roomsRoutes = (0, express_1.Router)();
+roomsRoutes.get("/", rooms_controller_1.getUserRooms);
+roomsRoutes.post("/", rooms_controller_1.createRoom);
+roomsRoutes.delete("/:roomId", rooms_controller_1.deleteRoom);
+roomsRoutes.post("/add-collaborator/:roomId", rooms_controller_1.addCollaborator);
+roomsRoutes.patch(":roomdId/quantity/:productId", rooms_controller_1.updateQuantity);
+roomsRoutes.patch("/:roomId/toggle/:productId", rooms_controller_1.toggleProduct);
+roomsRoutes.post("/:roomId/:productId");
+exports.default = roomsRoutes;
